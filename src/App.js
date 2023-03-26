@@ -1,15 +1,14 @@
 
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Counter from './components/Counter/Counter';
+// import Counter from './components/Counter/Counter';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <ItemListContainer greeting={'Bienvenido a mi Ecommerce'} />
-      {/* <Counter /> */}
     </div>
   );
 }
