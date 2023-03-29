@@ -1,10 +1,29 @@
-const Item = ({ name, img, price }) => {
+import './Item.css'
+import { Link, useNavigate } from 'react-router-dom'
+
+const Item = ({id, name, img, price }) => {
+
+    const navigate = useNavigate()
+
     return (
-        <div style={{margin:10}}>
-            <h3>{name}</h3>
-            <img src={img} alt={name} style={{width: 300}}/>
-            <p>Precio: ${price}</p>
-        </div>
+        <article className="CardItem">
+            <header className="Header">
+                <h2 className="ItemHeader">
+                    {name}
+                </h2>
+            </header>
+            <picture>
+                <img src={img} alt={name} className="ItemImg"/>
+            </picture>
+            <section>
+                <p className="Info">
+                    Precio: ${price}
+                </p>
+            </section>           
+            <footer className='ItemFooter'>
+               <Link to={`/item/${id}`} className='Option'>Ver detalle</Link>
+            </footer>
+        </article>
     )
 }
 

@@ -1,25 +1,20 @@
-import './Navbar.css'
-import Button from '../Button/Button'
-
 import CartWidget from '../CartWidget/CartWidget'
+import './Navbar.css'
+import { Link, NavLink } from 'react-router-dom'
 
-const Navbar = () => {
-    return (
-        <nav className="Navbar">
-            <h1>Charitos Cake</h1>
-            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                {/* <button className="btn btn-primary me-md-2">Tortas</button>
-                <button className="btn btn-primary me-md-2">Galletas</button>
-                <button className="btn btn-primary me-md-2">Tartas</button>
-                <button className="btn btn-primary me-md-2">Alfajores</button> */}
-                <Button label="Tortas" callback={() => console.log('Tortas')} />
-                <Button label="Galletas" callback={() => console.log('Galletas')}/>
-                <Button label="Tartas" callback={() => console.log('Tartas')}/>
-                <Button label="Alfajores" callback={() => console.log('Alfajores')}/>
-            </div>
-            <CartWidget />
-        </nav>
-    )
+const NavBar = () => {
+  return (
+    <nav className="NavBar" >
+        <Link to='/'>Charitos Cake</Link>
+        <div className="Categories">
+            <NavLink to='/category/tortas' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Tortas</NavLink>
+            <NavLink to='/category/galletas' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Galletas</NavLink>
+            <NavLink to='/category/tartas' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Tartas</NavLink>
+            <NavLink to='/category/alfajores' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Alfajores</NavLink>
+        </div>
+        <CartWidget />
+    </nav>
+  )
 }
 
-export default Navbar
+export default NavBar
